@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "author": "Guilherme Moreira de Souza",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": -3, "left": 127.6, "attrs": {} },
+      {
+        "type": "board-esp32-devkit-c-v4",
+        "id": "esp",
+        "top": 171.14,
+        "left": 243.7,
+        "rotate": 90,
+        "attrs": {}
+      },
+      { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 80, "left": -95.2, "attrs": {} },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 128.75,
+        "left": 249.6,
+        "attrs": { "value": "10000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 128.75,
+        "left": 374.4,
+        "attrs": { "value": "10000" }
+      },
+      { "type": "wokwi-led", "id": "led1", "top": 63.6, "left": 512.6, "attrs": { "color": "red" } }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "esp:GND.2", "bb1:bn.25", "black", [ "v19.2", "h57.6" ] ],
+      [ "esp:22", "bb1:24b.j", "orange", [ "v9.6", "h57.6", "v-124.8", "h-38.4" ] ],
+      [ "esp:3V3", "bb1:1b.j", "red", [ "v-9.45", "h-220.8", "v-9.6" ] ],
+      [ "ldr1:VCC", "bb1:1b.f", "red", [ "h48", "v38.4" ] ],
+      [ "bb1:bp.14", "bb1:17b.j", "black", [ "v0" ] ],
+      [ "bb1:bn.21", "led1:C", "black", [ "v-30.1", "h1.6" ] ],
+      [ "bb1:30b.f", "led1:A", "magenta", [ "v0", "h48", "v-57.6", "h76.8", "v48" ] ],
+      [ "bb1:11b.f", "ldr1:GND", "black", [ "v-9.6" ] ],
+      [ "r1:1", "bb1:11b.h", "", [ "$bb" ] ],
+      [ "r1:2", "bb1:17b.h", "", [ "$bb" ] ],
+      [ "r2:1", "bb1:24b.h", "", [ "$bb" ] ],
+      [ "r2:2", "bb1:30b.h", "", [ "$bb" ] ]
+    ],
+    "dependencies": {}
+  }
